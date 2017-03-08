@@ -2,7 +2,6 @@ package org.throwable.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.throwable.client.ServiceClient;
@@ -15,11 +14,16 @@ import org.throwable.client.ServiceClient;
 @RestController
 public class Service1Controller {
 
-	@Autowired
-	private ServiceClient serviceClient;
+    @Autowired
+    private ServiceClient serviceClient;
 
-	@GetMapping(value = "/test")
-	public String test(@RequestParam(name = "value") String value) {
-		return serviceClient.test(value);
-	}
+    @GetMapping(value = "/test")
+    public String test(@RequestParam(name = "value") String value) {
+        return serviceClient.test(value);
+    }
+
+    @GetMapping(value = "/testRest")
+    public String testRest(@RequestParam(name = "value") String value) {
+        return serviceClient.testRest(value);
+    }
 }
